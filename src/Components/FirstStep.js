@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Button,TextField} from "@mui/material"
+import { appContext } from '../StepContext'
 
 const FirstStep = () => {
+  const {setCurrentStep} = useContext(appContext)
   return (
     <div className="box">
         <div>
@@ -13,7 +15,7 @@ const FirstStep = () => {
         <div>
          <TextField label='Contact Number' variant='outlined' margin='normal' color='secondary'/>
         </div>
-         <Button variant='contained' color='primary'>Next</Button>
+         <Button variant='contained' color='primary' onClick={()=>setCurrentStep(2)}>Next</Button>
     </div>
   )
 }

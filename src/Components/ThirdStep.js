@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Button,TextField} from "@mui/material"
+import { appContext } from '../StepContext'
 
 const ThirdStep = () => {
+  const{setCurrentStep,userData,setUserData,finalData,setFinalData,submitData}=useContext(appContext)
   return (
     <div>
       <div className="box">
         <div>
-         <TextField label='Fisrt Name' variant='outlined' margin='normal' color='secondary'/>
+         <TextField label='City' variant='outlined' margin='normal' color='secondary'/>
         </div>
         <div>
-          <TextField label='Last Name' variant='outlined' margin='normal' color='secondary'/>
+          <TextField label='Landmark' variant='outlined' margin='normal' color='secondary'/>
         </div>
         <div>
-         <TextField label='Contact Number' variant='outlined' margin='normal' color='secondary'/>
+         <TextField label='PostalCode' variant='outlined' margin='normal' color='secondary'/>
         </div>
-         <Button variant='contained' color='primary'>Next</Button>
+        <div>
+         <Button variant='contained' color='secondary' onClick={()=>setCurrentStep(2)}>Back</Button><span> </span>
+         <Button variant='contained' color='primary' onClick={submitData}>Submit</Button>
+        </div>
     </div>
     </div>
   )
