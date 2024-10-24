@@ -7,7 +7,9 @@ const StepContext = () => {
     const[userData,setUserData]= useState([])
     const[finalData,setFinalData]= useState([])
     function submitData(){
-
+        setFinalData(prevFinalData=>[...prevFinalData,userData])
+        setUserData('')
+        setCurrentStep(1)
     }
   return (
     <div>
