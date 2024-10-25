@@ -8,10 +8,11 @@ import StepLabel from '@mui/material/StepLabel';
 import './App.css';
 import { appContext } from './StepContext';
 import { useContext } from 'react';
+import DisplayData from './Components/DisplayData';
 
 
 function App() {
-  const {currentStep,userData} = useContext(appContext);
+  const {currentStep,userData,finalData} = useContext(appContext);
   function showCase(step){
     switch(step) {
       case 1: return <FirstStep/>
@@ -38,6 +39,8 @@ function App() {
           </Stepper>
         </div>
         {showCase(currentStep)}
+        <br/>
+        {finalData.length>0 && <DisplayData/>}
       </header>
     </div>
   );
